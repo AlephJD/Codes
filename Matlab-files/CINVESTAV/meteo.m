@@ -4,7 +4,7 @@
 % tiempo de 'N' longitud (e.g. 3 meses, 1 dia, 12 horas).
 % (Read ascii files, and calculates statistics of variables. Averages every 
 % 'N' minutes to reduce file size. Results are plotted on a 'N' length time
-% series. E.g.: 3 months, 1 day, 12 hours)
+% series. E.g.: 3 months, 1 day, 12 hours.)
 
 
 % PENDIENTES:   1) Actualizar 3 veces al dia la Figura.
