@@ -1,0 +1,8 @@
+
+'awac.m': Process data files in ASCII format. Calculates variables statistics each 'N' period.
+
+'xcambo4_procesado_datos.m': Open and process Project Xcambo4 database. Locates sampling station points on files, differentiated them of continuous measurements.
+
+'xcambo4_lecturaguardar_datos.m': Open and reads Project Xcambo4 ADCP files. Makes a database of the new ADCP parameters.
+
+'meteo.m': Read ascii files, and calculates variables statistics. Averages every 'N' minutes to reduce file size. Results are plotted on a 'N' lenght time series.
