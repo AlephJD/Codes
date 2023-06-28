@@ -1,16 +1,18 @@
-"Informes" folder (Reports folder)
+"Informes"
 
-'error_T_S.m': Temperature and salinity diagram for BTS10 report using cruise direct data.
+* error_T_S.m: Temperature and salinity diagram for BTS10 report using cruise direct data.
 
-'graficas_lineas_e.m': Sampling lanes graphic from BTS10 cruise.
+* graficas_lineas_e.m: Sampling lanes graphic from BTS10 cruise.
 
-'graficas_lineas_i.m': Sampling lanes graphic from BTS10 cruise.
+* graficas_lineas_i.m: Sampling lanes graphic from BTS10 cruise.
 
-'lectura_files_CTD':
+### Second modification ### (2023.09.06)
 
-'temporal7':
+* lectura_files_CTD.m: Read 'up'/'down' CTD files from cruises. Allow to verify if is there a 'bad' cast. 
 
-'temporal7_1':
+* temporal7.m: Allow to get the geographical coordinates of the stations when the CTD is in the sea bottom for every cast. For report table generation purposes.
+
+* temporal7_1.m: Allow to get the geographical coordinates of the stations when the CTD is in the sea bottom for every cast. For report table generation purposes. Generate the calibrated cruise data
 
 
 
