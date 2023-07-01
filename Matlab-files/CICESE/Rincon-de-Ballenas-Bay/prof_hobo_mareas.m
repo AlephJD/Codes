@@ -1,5 +1,7 @@
 % Calcula profundidad del fondo a la que deben ser lanzados los anclajes de
 % los hobos para quedar a 5m debajo del nivel bajo de marea.
+% (Bottom depth calculation in which each hobo anchor. Each one must be 5m 
+% below low tide level.)
 
 prof_hobo=20.3; % altura en m del anclaje de hobo, del muerto a la parte mas alta de las boyas.
 Aboya= 3; % profundidad de la boya debajo del m’nimo del nivel del mar
@@ -8,6 +10,7 @@ to=datenum(2011,12,6,9,0,0); % hora de lanzamiento del anclaje en cuestion
 close all
 
 % Carga los datos de marea
+% (Load tide data)
 dat=load('ens_marea_2011-12(2).prd');
 t=datenum(dat(:,1),dat(:,2),dat(:,3),dat(:,4),dat(:,5),dat(:,5)*0);
 Ah=dat(:,6)/1000; % nivel del mar respecto al nivel del mar medio en m
@@ -33,6 +36,8 @@ prof_boya2=Aboya+Amin2+Ah;
 mean_prof2= prof_hobo+Aboya+Amin2;
 
 ind3=find(t>=datenum(2011,12,5,8,0,0) & t<=datenum(2011,12,6,23,0,0));
+
+% Grapics
 figure
 plot(t(ind3),Ah(ind3)); hold on
 plot(t(ind3),Ah(ind3)*0)
