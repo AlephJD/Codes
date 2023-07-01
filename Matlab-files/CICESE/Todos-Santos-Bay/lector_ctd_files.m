@@ -1,5 +1,11 @@
 % Carga datos de CTD de los crucero BTS
+% (Load CTD data from BTS cruises, and find flag values.)
+
 % 2(sub), 3(baj), 4(baj), 6(sub), 8(baj), 9(sub), 10(baj).
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha 22.10.2011
 
 clear
 for cruc = 10 %[2:4 6 8:10]
@@ -16,6 +22,7 @@ for n = 1:length(files)
     dat = load(['ctdbts',num2str(cruc),'\' files(n).name]);
     
     % Encuentra valores bandera (99.0000 o 99.9999)
+    % (Find flag values)
     ind = find(dat(:,3) < 99); sa = gsw_SA_from_SP(dat(ind,3),dat(ind,1),lon(n),lat(n));
                                if ~isempty(ind) && length(ind) >= 2; SA(:,n) = interp1(dat(ind,1),sa,P);           else   SA(:,n) = NaN*ones(length(P),1); end;
                                if ~isempty(ind) && length(ind) >= 2; S(:,n) = interp1(dat(ind,1),dat(ind,3),P);    else    S(:,n) = NaN*ones(length(P),1); end;

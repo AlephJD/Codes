@@ -1,5 +1,10 @@
 % Grafica los datos 'in situ' recabados en los cruceros BTS's por lineas
 % de muestreo.
+% ('In situ' data graphics for BTS cruises for each sample line.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha 28.11.2011
 
 clear
 

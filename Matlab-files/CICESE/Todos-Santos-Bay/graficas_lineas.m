@@ -1,4 +1,9 @@
-% Codigo que grafica las lineas de muestreo del crucero BTS10.
+% Codigo que grafica las lineas de muestreo del crucero BTS*. 
+% (Sample lines graphic for a specific cruise campaign: BTS*)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha 30.11.2011
 
 clear
 load datosBTS10
@@ -32,8 +37,8 @@ cX = caxis; hold on
 [C,h] = contour(x,P,D,'k','LineWidth',1); clabel(C,h);
 caxis(cX)
 
-title('Salinidad (ups)'); ylabel('Presión (dbar)'); text(-9,-150,['Crucero BTS',num2str(k),'; L?nea ',num2str(linea)],'FontSize',12,'FontWeight','bold');
-title('Oxígeno Disuelto (ml{\cdot}L^-^1)'); 
+title('Salinidad (ups)'); ylabel('Presion (dbar)'); text(-9,-150,['Crucero BTS',num2str(k),'; Linea ',num2str(linea)],'FontSize',12,'FontWeight','bold');
+title('Oxigeno Disuelto (ml{\cdot}L^-^1)'); 
 title('Temperatura (ºC)'); ylabel('Presión (dbar)'); xlabel('Distancia (km)'); 
 
 

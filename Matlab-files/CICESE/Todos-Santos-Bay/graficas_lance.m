@@ -1,5 +1,11 @@
 % Grafica los perfiles de las variables hidrograficas por lance de cada 
 % linea por crucero.
+% (Profiles graphics of hydrographic variables of each cast for each cruise 
+% line.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha 29.11.2011
 
 clear
 load lineasBTS04

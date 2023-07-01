@@ -1,5 +1,7 @@
 % Genera matrices de interpolacion de variables hidrograficas de las campanias
 % BTS's para la region externa a la Bahia de Todos Santos.
+% (Makes interpolation matrices of hydrographic variables of BTS's campaigns
+% of its external region.)
 
 % Realizado por: Aleph Jimenez
 % Para: CICESE
@@ -8,11 +10,13 @@
 clear
 tic
 % Distanciamento(m) de los puntos a interpolar sobre una recta ficticia en la horizontal
+% (Length between interpolation points over a horizontal imaginary line.)
 dr = 500;
 % Distanciamento(kg/m3) de los puntos a interpolar sobre una recta ficticia en la densidad
+% (Length between interpolation points over a density imaginary line.)
 dD = (30-15)/50; di = [15:dD:30]';
 
-glat2m = 111194.93;    % 1?lat = 111,194.93 m (para una Tierra esferica de Radio(R) = 6,371,000 m)
+glat2m = 111194.93;    % 1deg lat = 111,194.93 m (para una Tierra esferica de Radio(R) = 6,371,000 m)
 mlat2m = 1853.25;      % 1'lat = 1853.2488 m = 1 m.n. (para una Tierra esferica de Radio(R) = 6,371,000 m)
 slat2m = 30.89;        % 1"lat = 30.8875 m   = 1/60 m.n. (para una Tierra esferica de Radio(R) = 6,371,000 m)
 
@@ -20,10 +24,12 @@ cruc = 0;
 for k = [2:4 6 8:10]
     cruc = cruc + 1;
     % carga lineas de crucero
+    % (load cruise lines)
     if k <=9; crucero = ['lineasBTS0',num2str(k)]; load(crucero); end
     if k >9;  crucero = ['lineasBTS',num2str(k)]; load(crucero); end
     for linea = 1:length(E)
         %% Variables
+        %% (Variables)
         % Ordena las coordenadas de Este a Oeste (derecha a izquierda en la matriz)
         lon = E(linea).lon'; lat = E(linea).lat';
         [s,orden] = sort(lon,'descend'); orden = fliplr(orden);
@@ -36,16 +42,18 @@ for k = [2:4 6 8:10]
         O2 =     E(linea).O2(:,orden);       % oxigeno disuelto (ml/L)
         D =      E(linea).D(:,orden);        % densidad in situ (kg/m3) 
         Chla =   E(linea).Chla(:,orden);     % clorofila (?/L)
-%         plance = E(linea).plance(:,orden);   % profundidad de lance (m)
-%         pdbar =  E(linea).pdbar(:,orden);    % presion (dbar)
+%        plance = E(linea).plance(:,orden);   % profundidad de lance (m)
+%        pdbar =  E(linea).pdbar(:,orden);    % presion (dbar)
                                              % P(profundidad en m)
         
         % Calculando la  Anomalia de Densidad Potencial
+        % (Potential Density Anomaly calculation.)
         SA = gsw_SA_from_SP(S,P,lon,lat); TC = gsw_CT_from_t(SA,T,P);
         
         DP = gsw_rho_CT_exact(SA,TC,0)-1000;
         
         % Para interpolar con respecto a la 'Densidad'
+        % (Interpolation with respect to density.)
         for ind = 1:length(lance)
             [DP(:,ind),orden] = sort(DP(:,ind),'ascend');
             S_den(:,ind)      = S(orden,ind);
@@ -58,8 +66,12 @@ for k = [2:4 6 8:10]
         
         % Calcula el angulo entre la 1er. y ultima estacion de la linea de muestreo 
         % (de Este a Oeste) para generar una recta ficticia de distancia 'dfm' donde interpolar
+        % (Angle calculation between first and last station point on the sample line.
+        % Makes a imaginary line where the interpolation takes place.)
         [distance,angle] = sw_dist([lat(end) lat(1)],[lon(end) lon(1)],'km');
+
         % Encuentra las distancias de separacion entre estaciones de muestreo
+        % (Finds the distance between sample stations.)
         [dist,angles] = sw_dist(lat,lon,'km'); dist = dist*1000;
         
         dfm = distance*1000; ri = [0 dr:dr:dfm]; 
@@ -67,6 +79,7 @@ for k = [2:4 6 8:10]
         
         % Encuentra distancias 'x' y 'y' de las coordenadas geograficas de los
         % puntos de muestreo
+        % (Finds (x,y) distances of geographic coordinates of sample points)
         alphas = angles.*pi/180;
         y = dist.*sin(alphas); y_neg = find(y < 0);
         if ~isempty(y_neg); y(y_neg) = y(y_neg)* - 1; else
@@ -75,17 +88,21 @@ for k = [2:4 6 8:10]
         x = [0 cumsum(x(end:-1:1))]; x = x/1000; x = fliplr(x); % y = [0;cumsum(y(end:-1:1))];  y = y/1000; y = fliplr(y);
 
         % Encuentra distancias 'x' y 'y' de los puntos de interpolacion sobre la recta ficticia
+        % (Finds (x,y) distances of interpolation points over an imaginary line.)
         alpha = angle*pi/180;
         yi = ri*sin(alpha);
         xi = sqrt(ri.^2 - yi.^2);
 
         % Calcula la equivalencia de 1 grado de longitud a una latitud dada
+        % (Finds 1 degree equivalency for a certain latitude.)
         latmed = (lat(1) + lat(end))/2; radian = latmed*pi/180;
         lonEqlat = cos(radian); lonEqlat = lonEqlat*mlat2m; 
         glon2m = lonEqlat*60; 
 
         % Obtiene las coordenadas geograficas sobre las cuales estan localizados
         % los puntos de interpolacion (x,y) sobre la recta ficticia.
+        % (Calculates geographic coordinates in which interpolation (x,y) points)
+        % are on an imaginary line.)
         dgx = xi./glon2m; dgy = yi./glat2m;
         lons = lon(end) - dgx; lats = lat(end) + dgy;       % el signo de [lats = lat(end) (+) dgy], depende desde que estacion
         xi = xi/1000; yi = yi/1000;                         % se mida el angulo de
@@ -94,6 +111,8 @@ for k = [2:4 6 8:10]
 
         % Calcula la interpolacion de las variables en los puntos sobre la recta
         % a los niveles de presion
+        % (Calculation of interpolation of variables on points over the line in
+        % pressure levels.)
          for vars = 1:6 
             switch vars
                 case 1; var = fecha; 
@@ -138,6 +157,7 @@ for k = [2:4 6 8:10]
                     end % if ~isempty(nonan) & length(nonan) >= 2
                 end % for z = 1:length(P)
                 % INTERPOLACION RESPECTO A DENSIDAD
+                % (Interpolation with respect to density.)
                 for xx = 1:length(x)
                     nonan2 = find(~isnan(DP(:,xx)));
                     if ~isempty(nonan2) && length(nonan2) >= 2

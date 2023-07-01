@@ -1,6 +1,7 @@
 function anm = anom_var(var,p)
 
 % anom_var                           anomalias de una variable
+%                                    (variable anomalies)
 %=============================================================
 %
 % USO:
