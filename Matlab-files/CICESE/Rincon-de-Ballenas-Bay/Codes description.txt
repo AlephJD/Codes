@@ -1,6 +1,6 @@
 "Rincon de Ballenas Bay"
 
-'prof_hobo_mareas.m': Bottom depth calculation in which each hobo anchor. Each one must be 5m below low tide level.
+'prof_hobo_mareas.m': Bottom depth calculation for each hobo anchor. Each one must be 5m below low tide level.
 
 
 

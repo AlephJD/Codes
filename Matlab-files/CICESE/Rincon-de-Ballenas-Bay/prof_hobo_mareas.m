@@ -1,6 +1,6 @@
 % Calcula profundidad del fondo a la que deben ser lanzados los anclajes de
 % los hobos para quedar a 5m debajo del nivel bajo de marea.
-% (Bottom depth calculation in which each hobo anchor. Each one must be 5m 
+% (Bottom depth calculation for each hobo anchor. Each one must be 5m 
 % below low tide level.)
 
 prof_hobo=20.3; % altura en m del anclaje de hobo, del muerto a la parte mas alta de las boyas.
