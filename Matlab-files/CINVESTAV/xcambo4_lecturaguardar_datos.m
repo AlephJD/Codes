@@ -16,58 +16,58 @@
 % IMPORTANTE: Realizar este proceso una sola ocasion.
 %% (Makes a file with the names of ADCP files to be readed and processed)
 
-% num=[2,5,7]; n=0;
-% fid=fopen('name_all.txt','a+');
-% for k=1:3
-%     if (k==1); name1=['CNK1801',num2str(num(k)),'_000000.ENX.VE.txt'];
-%                name2=['CNK1801',num2str(num(k)),'_000000.ENX.NV.txt'];
-%                name3=['CNK1801',num2str(num(k)),'_000000.ENX.AN.txt'];
-%                name4=['CNK1801',num2str(num(k)),'_000000.ENX.BT.txt'];
-%                name5=['CNK1801',num2str(num(k)),'_000000.ENX.CO.txt'];
-%                name6=['CNK1801',num2str(num(k)),'_000000.ENX.EA.txt'];
-%                name7=['CNK1801',num2str(num(k)),'_000000.ENX.MC.txt'];
-%                name8=['CNK1801',num2str(num(k)),'_000000.ENX.PG.txt'];
-%                name9=['CNK1801',num2str(num(k)),'_000000.ENX.WR.txt'];
-%                  fprintf(fid,'%30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\n',name1,name2,name3,name4,name5,name6,name7,name8,name9); n=n+1;
-%         end
-%     if (k==2); for m=0:6;
-%                name1=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.VE.txt'];
-%                name2=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.NV.txt'];
-%                name3=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.AN.txt'];
-%                name4=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.BT.txt'];
-%                name5=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.CO.txt'];
-%                name6=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.EA.txt'];
-%                name7=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.MC.txt'];
-%                name8=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.PG.txt'];
-%                name9=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.WR.txt'];
-%                  fprintf(fid,'%30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\n',name1,name2,name3,name4,name5,name6,name7,name8,name9); n=n+1;
-%                end
-%         end
-%     if (k==3); for m=0:54;
-%             if m<10;  name1=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.VE.txt'];
-%                       name2=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.NV.txt'];
-%                       name3=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.AN.txt'];
-%                       name4=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.BT.txt'];
-%                       name5=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.CO.txt'];
-%                       name6=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.EA.txt'];
-%                       name7=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.MC.txt'];
-%                       name8=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.PG.txt'];
-%                       name9=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.WR.txt']; end
-%             if m>=10; name1=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.VE.txt'];
-%                       name2=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.NV.txt'];
-%                       name3=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.AN.txt'];
-%                       name4=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.BT.txt'];
-%                       name5=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.CO.txt'];
-%                       name6=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.EA.txt'];
-%                       name7=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.MC.txt'];
-%                       name8=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.PG.txt'];
-%                       name9=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.WR.txt']; end
-%                  fprintf(fid,'%30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\n',name1,name2,name3,name4,name5,name6,name7,name8,name9); n=n+1;
-%                end
-%         end
-% end
-% fclose(fid);
-% n
+num=[2,5,7]; n=0;
+fid=fopen('name_all.txt','a+');
+for k=1:3
+    if (k==1); name1=['CNK1801',num2str(num(k)),'_000000.ENX.VE.txt'];
+               name2=['CNK1801',num2str(num(k)),'_000000.ENX.NV.txt'];
+               name3=['CNK1801',num2str(num(k)),'_000000.ENX.AN.txt'];
+               name4=['CNK1801',num2str(num(k)),'_000000.ENX.BT.txt'];
+               name5=['CNK1801',num2str(num(k)),'_000000.ENX.CO.txt'];
+               name6=['CNK1801',num2str(num(k)),'_000000.ENX.EA.txt'];
+               name7=['CNK1801',num2str(num(k)),'_000000.ENX.MC.txt'];
+               name8=['CNK1801',num2str(num(k)),'_000000.ENX.PG.txt'];
+               name9=['CNK1801',num2str(num(k)),'_000000.ENX.WR.txt'];
+                 fprintf(fid,'%30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\n',name1,name2,name3,name4,name5,name6,name7,name8,name9); n=n+1;
+        end
+    if (k==2); for m=0:6;
+               name1=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.VE.txt'];
+               name2=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.NV.txt'];
+               name3=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.AN.txt'];
+               name4=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.BT.txt'];
+               name5=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.CO.txt'];
+               name6=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.EA.txt'];
+               name7=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.MC.txt'];
+               name8=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.PG.txt'];
+               name9=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.WR.txt'];
+                 fprintf(fid,'%30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\n',name1,name2,name3,name4,name5,name6,name7,name8,name9); n=n+1;
+               end
+        end
+    if (k==3); for m=0:54;
+            if m<10;  name1=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.VE.txt'];
+                      name2=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.NV.txt'];
+                      name3=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.AN.txt'];
+                      name4=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.BT.txt'];
+                      name5=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.CO.txt'];
+                      name6=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.EA.txt'];
+                      name7=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.MC.txt'];
+                      name8=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.PG.txt'];
+                      name9=['CNK1801',num2str(num(k)),'_00000',num2str(m),'.ENX.WR.txt']; end
+            if m>=10; name1=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.VE.txt'];
+                      name2=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.NV.txt'];
+                      name3=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.AN.txt'];
+                      name4=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.BT.txt'];
+                      name5=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.CO.txt'];
+                      name6=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.EA.txt'];
+                      name7=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.MC.txt'];
+                      name8=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.PG.txt'];
+                      name9=['CNK1801',num2str(num(k)),'_0000',num2str(m),'.ENX.WR.txt']; end
+                 fprintf(fid,'%30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\t %30s\\n',name1,name2,name3,name4,name5,name6,name7,name8,name9); n=n+1;
+               end
+        end
+end
+fclose(fid);
+n
 
 %% Apertura, lectura y procesado de archivos de ADCP
 %% (Open, read and process ADCP files.)
@@ -189,17 +189,18 @@ for k=1:n
     pg4=PG(:,129:168);
     
     % Masa de Agua ('Water Mass')
-%     we=WM(:,);
-%     wn=WM(:,);
-%     wv=WM(:,);
-%     we=WM(:,);
-%     wm=WM(:,);
-%     wd=WM(:,);
+     we=WM(:,);
+     wn=WM(:,);
+     wv=WM(:,);
+     we=WM(:,);
+     wm=WM(:,);
+     wd=WM(:,);
        
     % WinRiver
 
     % NOMBRES DE ARCHIVOS PARA LOS PARAMETROS
     % (File names for parameters)
+
     % Velocidad ADCP
     fid1=fopen('ens.dat','a');
     fid2=fopen('t.dat','a');
@@ -209,6 +210,7 @@ for k=1:n
     fid6=fopen('err_a.dat','a');
     fid7=fopen('mag_a.dat','a');
     fid8=fopen('dir_a.dat','a');
+    
     % Navegacion
     fid9=fopen('u_b.dat','a');
     fid10=fopen('v_b.dat','a');
@@ -218,6 +220,7 @@ for k=1:n
     fid14=fopen('flon.dat','a');
     fid15=fopen('llat.dat','a');
     fid16=fopen('llon.dat','a');
+    
     % Auxiliares
     fid17=fopen('pit.dat','a');
     fid18=fopen('rol.dat','a');
@@ -227,6 +230,7 @@ for k=1:n
     fid22=fopen('ori.dat','a');
     fid23=fopen('bit.dat','a');
     fid24=fopen('bat.dat','a');
+    
     % Rastreo de Fondo
     fid25=fopen('bte.dat','a');
     fid26=fopen('btn.dat','a');
@@ -238,18 +242,21 @@ for k=1:n
     fid32=fopen('bd2.dat','a');
     fid33=fopen('bd3.dat','a');
     fid34=fopen('bd4.dat','a');
+    
     % Correlacion
     fid35=fopen('c1.dat','a');
     fid36=fopen('c2.dat','a');
     fid37=fopen('c3.dat','a');
     fid38=fopen('c4.dat','a');
     fid39=fopen('cm.dat','a');
+    
     % Amplitud del Eco
     fid40=fopen('e1.dat','a');
     fid41=fopen('e2.dat','a');
     fid42=fopen('e3.dat','a');
     fid43=fopen('e4.dat','a');
     fid44=fopen('em.dat','a');
+    
     % Porcentaje de Utilidad
     fid45=fopen('pg1.dat','a');
     fid46=fopen('pg2.dat','a');
@@ -260,6 +267,7 @@ for k=1:n
     for j=1:si
         fprintf(fid1,'%u\\n',ens(j,:));
         fprintf(fid2,'%f\\n',t(j,:));
+    
         % Velocidad ADCP
         fprintf(fid3,'%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\\n',u(j,:));
         fprintf(fid4,'%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\\n',v(j,:));
@@ -267,6 +275,7 @@ for k=1:n
         fprintf(fid6,'%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\\n',err(j,:));
         fprintf(fid7,'%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\\n',mag(j,:));
         fprintf(fid8,'%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f\\n',dir(j,:));
+        
         % Navegacion
         fprintf(fid9,'%d\\n',nve(j,:));
         fprintf(fid10,'%d\\n',nvn(j,:));
@@ -276,6 +285,7 @@ for k=1:n
         fprintf(fid14,'%f\\n',flon(j,:));
         fprintf(fid15,'%f\\n',llat(j,:));
         fprintf(fid16,'%f\\n',llon(j,:));
+        
         % Auxiliares
         fprintf(fid17,'%f\\n',pit(j,:));
         fprintf(fid18,'%f\\n',rol(j,:));
@@ -285,6 +295,7 @@ for k=1:n
         fprintf(fid22,'%f\\n',ori(j,:));
         fprintf(fid23,'%f\\n',bit(j,:));
         fprintf(fid24,'%f\\n',bat(j,:));
+        
         % Rastreo de Fondo
         fprintf(fid25,'%d\\n',bte(j,:));
         fprintf(fid26,'%d\\n',btn(j,:));
@@ -296,18 +307,21 @@ for k=1:n
         fprintf(fid32,'%u\\n',bd2(j,:));
         fprintf(fid33,'%u\\n',bd3(j,:));
         fprintf(fid34,'%u\\n',bd4(j,:));
+        
         % Correlacion
         fprintf(fid35,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',c1(j,:));
         fprintf(fid36,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',c2(j,:));
         fprintf(fid37,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',c3(j,:));
         fprintf(fid38,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',c4(j,:));
         fprintf(fid39,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',cm(j,:));
+        
         % Amplitud del Eco
         fprintf(fid40,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',e1(j,:));
         fprintf(fid41,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',e2(j,:));
         fprintf(fid42,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',e3(j,:));
         fprintf(fid43,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',e4(j,:));
         fprintf(fid44,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',em(j,:));
+        
         % Porcentaje de Utilidad
         fprintf(fid45,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',pg1(j,:));
         fprintf(fid46,'%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u\\n',pg2(j,:));

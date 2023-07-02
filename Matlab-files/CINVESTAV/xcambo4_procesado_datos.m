@@ -42,29 +42,29 @@ llat=navegacion(:,7);
 llon=navegacion(:,8);
 
 % estaciones=load('estaciones.dat');                              % carga el tiempo inicial y final aproximados cuando el buque esta cerca de la estacion
-%                                                                 % el orden de las columnas es (ens(i),t(i),flat(i),flon(i),llat(i),llon(i),ens(f),t(f),flat(f),flon(f),llat(f),llon(f))
-%                                                                 % i:inicial, f:final
+                                                                  % el orden de las columnas es (ens(i),t(i),flat(i),flon(i),llat(i),llon(i),ens(f),t(f),flat(f),flon(f),llat(f),llon(f))
+                                                                  % i:inicial, f:final
 
 %% Carga base de datos de linea de costa del Golfo de Mexico y puntos de las estaciones de muestreo.
 %% (Load coastline database and sampling stations points of Gulf of Mexico)
 
 cl=load('GMCL Xcambo4.dat'); xl=cl(:,1);yl=cl(:,2);               % carga parte de la linea de costa del Golfo de Mexico
 
-% ep=load('estacionespropuestas.txt');                            % carga coordenadas de las estaciones de muestreo propuestas en el Plan de Crucero
-% glat=ep(:,1);mlat=ep(:,2);slat=ep(:,3);                         
-% glon=ep(:,4);mlon=ep(:,5);slon=ep(:,6);
+ep=load('estacionespropuestas.txt');                              % carga coordenadas de las estaciones de muestreo propuestas en el Plan de Crucero
+glat=ep(:,1);mlat=ep(:,2);slat=ep(:,3);                         
+glon=ep(:,4);mlon=ep(:,5);slon=ep(:,6);
 
-% cg=load('Xcambo4 2010 Fechas y Coordenadas ADCP.txt');          % carga coordenadas de las estaciones de muestreo de la Bitacora
-% glon1=cg(:,1);mlon1=cg(:,2);slon1=cg(:,3);                      % (coordenadas y tiempo)   
-% glat1=cg(:,4);mlat1=cg(:,5);slat1=cg(:,6);
+cg=load('Xcambo4 2010 Fechas y Coordenadas ADCP.txt');            % carga coordenadas de las estaciones de muestreo de la Bitacora
+glon1=cg(:,1);mlon1=cg(:,2);slon1=cg(:,3);                        % (coordenadas y tiempo)   
+glat1=cg(:,4);mlat1=cg(:,5);slat1=cg(:,6);
 
-% yy=cg(:,7);mm=cg(:,8);dd=cg(:,9);hh=cg(:,10);mn=cg(:,11);
-% ss=zeros(size(mn));
-% tcruc=datenum(yy,mm,dd,hh,mn,ss);                               % convierte el tiempo (estaciones de bitacora) en formato (y,m,d,h,mn,s) numero serial (e.g. 7.3188e+005)
+yy=cg(:,7);mm=cg(:,8);dd=cg(:,9);hh=cg(:,10);mn=cg(:,11);
+ss=zeros(size(mn));
+tcruc=datenum(yy,mm,dd,hh,mn,ss);                                 % convierte el tiempo (estaciones de bitacora) en formato (y,m,d,h,mn,s) numero serial (e.g. 7.3188e+005)
 
-% cpctd=load('Coordenadas Perfiles CTD.txt');                     % carga coordenadas de los puntos donde se realizaron lances de CTD
-% glat2=cpctd(:,1);mlat2=cpctd(:,2);slat2=cpctd(:,3);
-% glon2=cpctd(:,4);mlon2=cpctd(:,5);slon2=cpctd(:,6);
+cpctd=load('Coordenadas Perfiles CTD.txt');                       % carga coordenadas de los puntos donde se realizaron lances de CTD
+glat2=cpctd(:,1);mlat2=cpctd(:,2);slat2=cpctd(:,3);
+glon2=cpctd(:,4);mlon2=cpctd(:,5);slon2=cpctd(:,6);
 
                                                                 
 % Conversion de Coordenadas Geograficas Lat/Lon (sexagesimales = \'b0,',") a
@@ -74,47 +74,49 @@ cl=load('GMCL Xcambo4.dat'); xl=cl(:,1);yl=cl(:,2);               % carga parte 
 % 1\'b0 = 60'; 1\'b0 = 3600"
 % 1' = 60"; 
 
-% mlon=mlon/60; slon=slon/3600;
-% glond=glon*(-1)+(mlon+slon);glond=glond*(-1);
+mlon=mlon/60; slon=slon/3600;
+glond=glon*(-1)+(mlon+slon);glond=glond*(-1);
 
-% mlat=mlat/60;slat=slat/3600;
-% glatd=glat+(mlat+slat);
+mlat=mlat/60;slat=slat/3600;
+glatd=glat+(mlat+slat);
+
 % %%%%
-% mlon1=mlon1/60; slon1=slon1/3600;                               % transforma las coordenadas geograficas (lon,lat) en formato (\'ba,',")
-% glond1=glon1+(mlon1+slon1);glond1=glond1*(-1);                  % a grados decimales
+mlon1=mlon1/60; slon1=slon1/3600;                                 % transforma las coordenadas geograficas (lon,lat) en formato (\'ba,',")
+glond1=glon1+(mlon1+slon1);glond1=glond1*(-1);                    % a grados decimales
 
-% mlat1=mlat1/60;slat1=slat1/3600;
-% glatd1=glat1+(mlat1+slat1);
+mlat1=mlat1/60;slat1=slat1/3600;
+glatd1=glat1+(mlat1+slat1);
+
 % %%%%
-% mlon2=mlon2/60; slon2=slon2/3600;
-% glond2=glon2*(-1)+(mlon2+slon2);glond2=glond2*(-1);
+mlon2=mlon2/60; slon2=slon2/3600;
+glond2=glon2*(-1)+(mlon2+slon2);glond2=glond2*(-1);
 
-% mlat2=mlat2/60;slat2=slat2/3600;
-% glatd2=glat2+(mlat2+slat2);
+mlat2=mlat2/60;slat2=slat2/3600;
+glatd2=glat2+(mlat2+slat2);
 
 plot(xl,yl),hold on
-% plot(glond,glatd,'cs')
-% plot(glond1,glatd1,'.-r')
-% plot(glond2,glatd2,'*k')
+plot(glond,glatd,'cs')
+plot(glond1,glatd1,'.-r')
+plot(glond2,glatd2,'*k')
 
     % Proceso inverso de transformacion. Coordenadas Geograficas en Grados
     % Decimales a Geograficas Lat/Lon (Sexagesimal).
     % (Reverse transformation process. Geographic coordinates in decimal to 
     % geographical ones.)
 
-% glatd=M(:,133);         glond=M(:,134)*(-1);    %74.9055.. (e.g.)
-% glat=fix(glatd);        glon=fix(glond);        %74
-% rlatg=glatd-glat;       rlong=glond-glon;       %0.90555..
-% mlatd=rlatg*60;         mlond=rlong*60;         %54.3333..
-% mlat=fix(mlatd);        mlon=fix(mlond);        %54
-% rlatm=mlatd-mlat;       rlonm=mlond-mlon;       %0.3333..
-% slatd=fix(rlatm*60);    slond=fix(rlonm*60);    %20      
+glatd=M(:,133);         glond=M(:,134)*(-1);    %74.9055.. (e.g.)
+glat=fix(glatd);        glon=fix(glond);        %74
+rlatg=glatd-glat;       rlong=glond-glon;       %0.90555..
+mlatd=rlatg*60;         mlond=rlong*60;         %54.3333..
+mlat=fix(mlatd);        mlon=fix(mlond);        %54
+rlatm=mlatd-mlat;       rlonm=mlond-mlon;       %0.3333..
+slatd=fix(rlatm*60);    slond=fix(rlonm*60);    %20      
 
     % Corrige los valores de velocidad de ADCP respecto a los de Navegacion
     % para obtener la velocidad real de la Corriente.
+    % (Corrects the ADCP speed values with respect to the navigation values
+    % to obtain the actual speed of the current.)
     % Vadcp = Vbuque + Vcorriente -----> Vcorriente = Vadcp + Vcorriente
-    % (Corrects the ADCP speed values ​​with respect to the navigation values 
-    % ​​to obtain the actual speed of the current.)
 
     fid1=fopen('uc_nvcg.dat','a');
     fid2=fopen('vc_nvcg.dat','a');
@@ -151,53 +153,53 @@ plot(xl,yl),hold on
           hold on; quiver(flon(i),flat(i),uc_s(i),vc_s(i));
       end
       
-%           flatm=nanmean(flat(i));
-%           flonm=nanmean(flon(i));
-%           uc_sm=nanmean(uc_s(i));
-%           vc_sm=nanmean(vc_s(i));
-%           figure(4)
-%           hold on; quiver(flonm,flatm,uc_sm,vc_sm,0.001);
+           flatm=nanmean(flat(i));
+           flonm=nanmean(flon(i));
+           uc_sm=nanmean(uc_s(i));
+           vc_sm=nanmean(vc_s(i));
+           figure(4)
+           hold on; quiver(flonm,flatm,uc_sm,vc_sm,0.001);
           
-%           u_est(  ,:,k)=uc(i,:);
-%           v_est(  ,:,k)=vc(i,:);
-%           flat_est(:,k)=flat(i); flon_est(:,k)=flon(i);
-%           lat=[];lon=[];
+           u_est(  ,:,k)=uc(i,:);
+           v_est(  ,:,k)=vc(i,:);
+           flat_est(:,k)=flat(i); flon_est(:,k)=flon(i);
+           lat=[];lon=[];
 
 %           % Calcula promedios de las componentes para la estacion 
 %           % y obtiene una coordenada geografica promedio del transecto
 
-%               uestm=nanmean(uest,2); vestm=nanmean(vest,2);
-%               uestm=nanmean(uestm); vestm=nanmean(vestm);
-%               flatm(k)=nanmean(flat_est(:,k)); flonm(k)=nanmean(flon_est(:,k));
+               uestm=nanmean(uest,2); vestm=nanmean(vest,2);
+               uestm=nanmean(uestm); vestm=nanmean(vestm);
+               flatm(k)=nanmean(flat_est(:,k)); flonm(k)=nanmean(flon_est(:,k));
 %       end
 
-%           j=length(inicio:fin); j=j+i;
-%           i=i+1;
-%           estacion=[i,j,test,uest,vest,flat_est,flon_est];
-%           i=j;
+           j=length(inicio:fin); j=j+i;
+           i=i+1;
+           estacion=[i,j,test,uest,vest,flat_est,flon_est];
+           i=j;
 
       
-%      lat=[lat+s,lat+s,lat-s,lat-s];
-%      lon=[lon-s,lon+s,lon+s,lon-s];
+      lat=[lat+s,lat+s,lat-s,lat-s];
+      lon=[lon-s,lon+s,lon+s,lon-s];
 
 
-%     uc=nanmean(uc,2); vc=nanmean(vc,2);                                             % calcula el promedio sobre el espacio renglon (en la columna de agua)
-%     [dirp magp]=cart2pol(uc,vc);                                                    % obtiene la magnitud y direccion del vector resultante del promedio de la columna de agua y del transecto
-%     max(magp)
-%     uc=nanmean(uc); vc=nanmean(vc);                                                 % calcula el promedio sobre el espacio columna (en el tiempo)    
-%     [dirp magp]=cart2pol(uc,vc);                                                    % obtiene la magnitud y direccion del vector resultante del promedio de la columna de agua y del transecto
-%     dirp=dirp*180/pi;                                                               % transforma de radianes a grados.
+     uc=nanmean(uc,2); vc=nanmean(vc,2);                                             % calcula el promedio sobre el espacio renglon (en la columna de agua)
+     [dirp magp]=cart2pol(uc,vc);                                                    % obtiene la magnitud y direccion del vector resultante del promedio de la columna de agua y del transecto
+     max(magp)
+     uc=nanmean(uc); vc=nanmean(vc);                                                 % calcula el promedio sobre el espacio columna (en el tiempo)    
+     [dirp magp]=cart2pol(uc,vc);                                                    % obtiene la magnitud y direccion del vector resultante del promedio de la columna de agua y del transecto
+     dirp=dirp*180/pi;                                                               % transforma de radianes a grados.
 
-%     for i=1:length(dirp)
-%         if dirp(i)>=0 & dirp(i)<=90         % 0\'b0-90\'b0
-%             dirp(i)=90-dirp(i);
-%         elseif dirp(i)<0 & dirp(i)>=-180    % 91\'b0-270\'b0
-%             dirp(i)=90-dirp(i);
-%         elseif dirp(i)>90 & dirp(i)<=180    % 271\'b0-360\'b0
-%             dirp(i)=450-dirp(i);
-%         end
-%     end
-%     magp
+     for i=1:length(dirp)
+         if dirp(i)>=0 & dirp(i)<=90         % 0\'b0-90\'b0
+             dirp(i)=90-dirp(i);
+         elseif dirp(i)<0 & dirp(i)>=-180    % 91\'b0-270\'b0
+             dirp(i)=90-dirp(i);
+         elseif dirp(i)>90 & dirp(i)<=180    % 271\'b0-360\'b0
+             dirp(i)=450-dirp(i);
+         end
+     end
+     magp
 
     [x,y,utmzone]=deg2utm(flat,flon);
     x=diff(x); y=diff(y);
@@ -209,10 +211,10 @@ plot(xl,yl),hold on
 
 % GRAFICAS
 % (GRAPHICS)
-%     figure(1)
-%     hold on; plot(flon,flat,'g')
-%     figure(1)
-%     hold on; quiver(flonm,flatm,uc,vc,0.001);
+     figure(1)
+     hold on; plot(flon,flat,'g')
+     figure(1)
+     hold on; quiver(flonm,flatm,uc,vc,0.001);
 
 
 si=size(uc_s); si=si(1); si=floor(si/100);

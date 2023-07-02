@@ -206,17 +206,19 @@ grid on
 %namefigh=['boya',num2str(fix(clock))];
 
 %% Respaldo Datos de salida
-%saveas(gcf,'namefigure','jpg')
-%if M
-%name=['awac',num2str(Y),'0',num2str(M),'.txt']
-%fprintf(name,'A','txt', \n \r)
-%save('d:\mymfiles\june10','vol','temp','-ASCII')
+%% (Output data backup)
+saveas(gcf,'namefigure','jpg')
+if M
+name=['awac',num2str(Y),'0',num2str(M),'.txt']
+fprintf(name,'A','txt', \n \r)
+save('d:\mymfiles\june10','vol','temp','-ASCII')
 
 %% Cierre de Archivo
+%% (Closing file)
 
-%fclose('all')
-%close all
-%quit
+fclose('all')
+close all
+quit
 
 
 

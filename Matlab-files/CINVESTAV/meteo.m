@@ -49,15 +49,15 @@ pira=A{15};
 do=A{18};
 orp=A{19};
 ph=A{20};
-%wD=A{23};
-%wS=A{24};
-%aT=A{25};
-%humid=A{26};
-%press=A{27};
-%rA=A{28};
-%rD=A{29};
-%hT=A{30};
-%hV=A{31};
+wD=A{23};
+wS=A{24};
+aT=A{25};
+humid=A{26};
+press=A{27};
+rA=A{28};
+rD=A{29};
+hT=A{30};
+hV=A{31};
 k=length(fecha);
 n=0;
 
@@ -65,8 +65,8 @@ n=0;
 %% (Output variables)
 temp_m=[]; T=[]; E=[];
 
-%% Procesado de Datos
-%% (Data processing)
+%% Procesado de Datos. Estadisticos
+%% (Data processing. Basic statistics)
 for i=1:k
     n=n+1;
     temp_m=[temp_m temp(i)];
