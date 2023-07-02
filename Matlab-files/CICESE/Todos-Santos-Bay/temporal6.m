@@ -1,6 +1,11 @@
 % Codigo para reacomodar datos de archivo de mareas para anclaje de HOBO's
 % en Rincon de Ballenas.
-% 16 de Abril de 2012
+% (Reshapes time data of tides files of HOBO instrument anchorage in Rincon
+% de Ballenas Bay.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha: 16.04.2012
 
 dat = load('ens_marea_2012-13(2).prd');
 

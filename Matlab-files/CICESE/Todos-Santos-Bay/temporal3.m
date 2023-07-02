@@ -1,4 +1,11 @@
 %% Ciclo para incrementar la posicion dentro de las variables estacionales
+%% (Plot seasonal variables in BTS exterior. Allows to make observations of 
+%% errors.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha: 17.12.2011
+
 load bts_ext
 inv = 1; prim = inv; ver = inv; oto = inv;
 
@@ -25,6 +32,7 @@ for cruc = 1:7
 end
 
 %% Para detectar errores en las matrices de datos observadas
+%% (Plot observed data matrices.)
 load lineasBTS8nuevas; cruc = 8;
 for linea = 1:5
     lance=E(linea).lance;S=E(linea).S;T=E(linea).T;O2=E(linea).O2;D=E(linea).D;

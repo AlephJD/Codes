@@ -1,6 +1,17 @@
- % A DATOSBTS2 LE FALTA ESTACIONES LON Y LAT, NO SON DEL MISMO TAMANYO QUE
- % S T ETC
+% Carga archivos de datos de 'datosBTS*', y realiza mapas de variables
+% hidrograficas mediante mapeo(analisis) objetivo.
+% (Makes objective mapping (analysis) graphs of hydrographic variables. Load
+% data from 'datosBTS*' files.)
+
+% Nota: a DatosBTS2 le hacen falta: 'estaciones', 'lon' y 'lat'. No son del 
+% mismo tamanio que 'S', 'T', etc.
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE 
+% Fecha: 21.10.2011
+
 % direc=[dir_raiz '/proyectos/Todos_Santos/datos/CTD/finales/'];
+
 clear
 files= dir('C:\Users\Aleph\CICESE Job\Datos\datosBTS*mat');
 sig=[26.5 25.5]; ps=[10 50 200 400];
@@ -15,7 +26,6 @@ for fil=1:length(files)
   load(arch); 
   if fil==2 inds=1:length(lon)-1; else inds=1:length(lon); end
   data=[];
-
   for den=1:length(ps)
     a=find(P==ps(den));
     spp=SP(a,inds); ss=S(a,inds); tt=T(a,inds); dd=D(a,inds);

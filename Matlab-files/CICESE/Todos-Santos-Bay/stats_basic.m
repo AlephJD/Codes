@@ -1,6 +1,7 @@
 function sb = stats_basic(var)
 
 % stats_basic          estadistica basica de una variable
+%                      (variable basic stats.)
 %=============================================================
 %
 % USO:

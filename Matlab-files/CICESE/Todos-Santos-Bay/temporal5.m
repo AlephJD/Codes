@@ -1,5 +1,11 @@
 % Para poder realizar comparativo rapido entre variables calculadas por las
 % ecuaciones de estado EOS-80 y TEOS-10.
+% (Compares between values of variables calculated with EOS-80 and TEOS-10 
+% state equations.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+% Fecha: 22.12.2011
 
 clear
 load datosBTS06
@@ -43,6 +49,9 @@ axis([SA_minn SA_maxx CT_minn CT_maxx]);
 % Lineas de codigo que permiten obtener las coordenadas geograficas de las
 % estaciones al momento en que el CTD se encuentra en el fondo durante el
 % lance. Sirve en la generacion de la tabla de los reportes.
+% (Obtains geographical coordinates of sample stations at the moment when 
+% the CTD is at the sea bottom during cast. For reports purposes.)
+
 clear
 cruc = 11; %[2:4 6 8:10]
 
