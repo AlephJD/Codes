@@ -1,6 +1,6 @@
 %% Ciclo para incrementar la posicion dentro de las variables estacionales
-%% (Plot seasonal variables in BTS exterior. Allows to make observations of 
-%% errors.)
+%% (Ploted variables by seasons in BTS exterior. Allows to make observations
+%% of errors.)
 
 % Realizado por: Aleph Jimenez
 % Para: CICESE

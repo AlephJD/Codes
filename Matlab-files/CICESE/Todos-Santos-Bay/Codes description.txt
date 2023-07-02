@@ -1,0 +1,29 @@
+
+'anom_var.m': function that makes anomalies calculations based on observed value and the average.
+
+'bts_ext_var_interp.m': Makes interpolation matrices of hydrographic variables of BTS's campaigns of its external region.
+
+'bts_int_var_graf.m': Load interpolation matrices of hydrographic variables of BTS's campaigns on its interior region. Makes temperature/salinity diagrams, transverse  sections and horizontal fields.
+
+'graficas_bts.m': 'In situ' data graphics for BTS cruises for each sample line.
+
+'graficas_lance.m': Profiles graphics of hydrographic variables of each cast for each cruise line.
+
+'graficas_lineas.m': Sample lines graphic for a specific cruise campaign: BTS*
+
+'lector_ctd_files.m': Load CTD data from BTS cruises, and find flag values.
+
+'mapasBTSpresion.m': Makes objective mapping (analysis) graphs of hydrographic variables. Load data from 'datosBTS*' files.
+
+'promedios_lineas_ext.m': Makes spacial/time averages/anomalies calculations on sample lines for BTS's cruises.
+
+'stats_basic.m': function that calculates mean and standard deviation of variables.
+
+'lineamax.mx': Load data files and calculate the maximum distance of the sample lines in each cruise. Also, calculates the min and max value for each variable.
+
+'season_var_bts_ext.m': Ploted variables by seasons in BTS exterior. Allows to make observations of errors.
+
+'comp_var_esovsteos.m': Compares between values of variables calculated with EOS-80 and TEOS-10 state equations.)
+
+'reshape_time_hobo.m': Reshapes time data of tides files of HOBO instrument anchorage in Rincon de Ballenas Bay.
+
