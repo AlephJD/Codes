@@ -1,8 +1,15 @@
 % Lineas de codigo que permiten obtener las coordenadas geograficas de las
 % estaciones al momento en que el CTD se encuentra en el fondo durante el
 % lance. Sirve en la generacion de la tabla de los reportes.
+% (Allow to get the geographical coordinates of the sampling stations when 
+% the CTD is in the sea bottom for every cast. For report table generation 
+% purposes.)
 
 % Genera los datos de crucero calibrados.
+% (Generate the calibrated cruise data.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
 
 clear
 cruc = 14;

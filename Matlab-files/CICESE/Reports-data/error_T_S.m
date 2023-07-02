@@ -1,5 +1,9 @@
-% Diagrama T/S para informe BTS10 usando datos directos de crucero 
-% (Temperature and salinity diagram for BTS10 report using cruise direct data.)
+% Diagrama T/S para informes BTS usando datos directos de crucero 
+% (Temperature and salinity diagrams for BTS's reports using cruise direct 
+% data.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
 
 clear
 cruc = 10;

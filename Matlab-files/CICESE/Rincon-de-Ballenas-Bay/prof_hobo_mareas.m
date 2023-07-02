@@ -3,6 +3,9 @@
 % (Bottom depth calculation for each hobo anchor. Each one must be 5m 
 % below low tide level.)
 
+% Realizado por: Aleph Jimenez
+% Para: CICESE
+
 prof_hobo=20.3; % altura en m del anclaje de hobo, del muerto a la parte mas alta de las boyas.
 Aboya= 3; % profundidad de la boya debajo del m’nimo del nivel del mar
 to=datenum(2011,12,6,9,0,0); % hora de lanzamiento del anclaje en cuestion

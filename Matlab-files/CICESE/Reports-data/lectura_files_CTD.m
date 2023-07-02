@@ -1,5 +1,10 @@
 % Codigo que lee los archivos de subida o bajada de CTD de los cruceros y
 % permite verificar si existe algun lance "malo".
+% (Read 'up'/'down' CTD files from cruises. Allow to verify if is there a 
+% 'bad' cast.)
+
+% Realizado por: Aleph Jimenez
+% Para: CICESE
 
 clear
 %close all
