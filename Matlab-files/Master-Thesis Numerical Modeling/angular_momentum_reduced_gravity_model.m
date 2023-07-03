@@ -6,14 +6,14 @@
 % gravity system (1 ½ capa).)
 
 
-%% Autor: 
-% Aleph Jimenez Dominguez
+% Autor: 
+%% Aleph Jimenez Dominguez
 
-%% Institucion: 
-% Centro de Investigacion Cientifica y de Educacion Superior de Ensenada, CICESE.
+% Institucion: 
+%% Centro de Investigacion Cientifica y de Educacion Superior de Ensenada, CICESE.
 
-%% Liga al repositorio institucional:
-% https://cicese.repositorioinstitucional.mx/jspui/bitstream/1007/1196/1/178741.pdf
+% Liga al repositorio institucional:
+%% https://cicese.repositorioinstitucional.mx/jspui/bitstream/1007/1196/1/178741.pdf
 
 
 %% SECCIONES: 
@@ -150,7 +150,7 @@ i = 1:nx;
  v(2,i,ind3) = 0;                                   % Impenetrabilidad (IM) 
 
 % Frontera Norte. 
- u(ny,i,ind3) = u(ny-1,i,ind3);                    % DL 
+ u(ny,i,ind3) = u(ny-1,i,ind3);                     % DL 
  v(ny,i,ind3) = 0;                                  % IM 
 
 j=1:ny; 
