@@ -2,7 +2,7 @@
 title: "Climate Change"
 author: "Aleph Jimenez"
 date: "2020-11-20"
-output: word_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -151,8 +151,8 @@ all vectors. If something is wrong we would run it for each gas
 
 ```{r, ghg time gaps}
 years <- greenhouse_gases$year    
-y <- integer(length(greenhouse_gases$year))     # making a vector of 0's; normalizing with 100 for each gas at the end
-plot(years, y, "l")
+y <- integer(length(greenhouse_gases$year))   # making a vector of 0's; 
+plot(years, y, "l")                           # normalizing with 100 for each gas at the end
 
 
 # Verifying that there's no NA's
@@ -198,7 +198,8 @@ greenhouse_gases %>%
 # Each
 # 1.2.1 CO2 & N2O
 average <- greenhouse_gases %>%
-  filter(year %in% seq(0, 1840, 20)) %>%      # 1850 unofficial year it begins the industrial revolution
+  filter(year %in% seq(0, 1840, 20)) %>%      # 1850 unofficial year it begins 
+                                              # the industrial revolution
   summarize(CH4 = mean(concentration[gas == "CH4"]),
             CO2 = mean(concentration[gas == "CO2"]), 
             N2O = mean(concentration[gas == "N2O"]))
@@ -349,8 +350,10 @@ grid.arrange(p1, p2, nrow = 2)
 
 
 # 1.4.1 Ice Cores and Grenhouse CO2 data base comparison (one graph).
-df_ic <- data.frame(year = historic_co2$year[historic_co2$year > 0 & historic_co2$source == "Ice Cores"], 
-                  CO2 = historic_co2$co2[historic_co2$year > 0 & historic_co2$source == "Ice Cores"])
+df_ic <- data.frame(year = historic_co2$year[historic_co2$year > 0 & 
+                                             historic_co2$source == "Ice Cores"],
+                    CO2 = historic_co2$co2[historic_co2$year > 0 & 
+                                             historic_co2$source == "Ice Cores"])
 
 df_gh <- data.frame(year = greenhouse_gases$year[greenhouse_gases$gas == "CO2"], 
                     CO2 = greenhouse_gases$concentration[greenhouse_gases$gas == "CO2"])
@@ -373,7 +376,8 @@ ggplot(data = df, aes(year, CO2, col = dataset)) +
   xlab("Year") +
   ylab("CO2[ppm]") +
   scale_color_discrete(name = "Source") +
-  ggtitle("Comparison between CO2 from Greenhouse gases(GH) and Ice Cores(IC)")
+  ggtitle("Comparison between CO2 from Greenhouse gases(GH) 
+          and Ice Cores(IC)")
 
 
 # 1.4.2 (two graph)
