@@ -3,26 +3,19 @@
 % (Makes objective mapping (analysis) graphs of hydrographic variables. Load
 % data from 'datosBTS*' files.)
 
-% Nota: a DatosBTS2 le hacen falta: 'estaciones', 'lon' y 'lat'. No son del 
-% mismo tamanio que 'S', 'T', etc.
-
 % Realizado por: Aleph Jimenez
 % Para: CICESE 
 % Fecha: 21.10.2011
-
-% direc=[dir_raiz '/proyectos/Todos_Santos/datos/CTD/finales/'];
 
 clear
 files= dir('C:\Users\Aleph\CICESE Job\Datos\datosBTS*mat');
 sig=[26.5 25.5]; ps=[10 50 200 400];
 x=[-117.3:.025:-116.6]; y=[31.3:.025:32.2];
 param=[ .3 .3 .05 .05 .1 .1];
-% dir_raiz;
-% addpath([dir_raiz '/Powlan/matlab/analisis_objetivo_pepe'])
 [X,Y]=meshgrid(x,y);
 
 for fil=1:length(files)
-  arch=  [files(fil).name]; %[direc files(fil).name];
+  arch=  [files(fil).name];
   load(arch); 
   if fil==2 inds=1:length(lon)-1; else inds=1:length(lon); end
   data=[];
